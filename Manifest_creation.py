@@ -15,12 +15,12 @@ path = os.path.join(cwd,'public','*')
 file_list = glob.glob(path)
 
 
-run_manifest = {"manifest":[]}
+run_manifest = {"manifest":{"files":[]}}
 for file in file_list:
   file_name = os.path.split(file)[1]
   file_type = mimetypes.guess_type(file_name)[0]
   file_url = host_address + file_name
-  run_manifest['manifest'].append({"url":file_url, "filename":file_name, "type":file_type})
+  run_manifest['manifest']['files'].append({"url":file_url, "filename":file_name, "type":file_type})
   
   
 run_manifest_str = str(run_manifest)
